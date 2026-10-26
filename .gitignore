@@ -1,0 +1,15 @@
+# Environment and secrets (never commit secrets)
+.env
+.env.*
+
+# Python / test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# Editor / OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

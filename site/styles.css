@@ -1,66 +1,144 @@
 :root {
   --bg: #f8fafc;
   --surface: #ffffff;
+  --surface-alt: #f1f5f9;
   --text: #0f172a;
   --muted: #475569;
   --primary: #1e3a8a;
   --primary-hover: #1d4ed8;
+  --focus-ring: #1d4ed8;
   --border: #cbd5e1;
   --notice-bg: #fef3c7;
   --notice-border: #f59e0b;
   --notice-text: #78350f;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   color: var(--text);
   background-color: var(--bg);
 }
 
+/* Skip link for keyboard accessibility (AC-07) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0.5rem;
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 0.75rem;
+}
+
+/* High-contrast keyboard focus indicator across all interactive elements (AC-07) */
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
 .course-notice {
   background-color: var(--notice-bg);
   border-bottom: 2px solid var(--notice-border);
   color: var(--notice-text);
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1rem;
   text-align: center;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 .container {
-  max-width: 900px;
+  width: 100%;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 2rem 1.25rem;
+  padding: 1.5rem 1.25rem;
 }
 
-header.hero {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+/* Site Header & Navigation (AC-05, AC-06) */
+.site-header {
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
-header.hero h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.15rem;
   color: var(--primary);
-  font-size: 2rem;
 }
 
-header.hero p.lead {
+.site-nav {
+  max-width: 100%;
+}
+
+.nav-list {
+  list-style: none;
   margin: 0;
-  font-size: 1.25rem;
-  color: var(--muted);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
 }
 
+.nav-list a {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.nav-list a:hover,
+.nav-list a:focus,
+.nav-list a:focus-visible {
+  background-color: var(--surface-alt);
+  color: var(--primary-hover);
+}
+
+/* Content Sections (AC-01..AC-05) */
+header.hero,
+section.hero,
 section.services,
+section.target-groups,
+section.working-approach,
 section.contact {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -69,15 +147,83 @@ section.contact {
   margin-bottom: 1.5rem;
 }
 
-.service-card h3 {
-  margin-top: 0.5rem;
+header.hero h1,
+section.hero h1 {
+  margin-top: 0;
   margin-bottom: 0.5rem;
   color: var(--primary);
+  font-size: 1.85rem;
+  line-height: 1.25;
 }
 
+header.hero p.lead,
+section.hero p.lead {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.hero-actions {
+  margin: 0;
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-size: 1.4rem;
+}
+
+/* Service Cards Grid (AC-02) */
+.service-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.service-card {
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  font-size: 1.15rem;
+}
+
+.service-card p {
+  margin: 0;
+}
+
+/* Target Groups & Working Approach (AC-03) */
+.target-group-list {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+}
+
+.target-group-item {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.approach-statement {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  background-color: var(--surface-alt);
+  border-left: 4px solid var(--primary);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Contact CTA (AC-04) */
 .cta-link {
   display: inline-block;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   padding: 0.65rem 1.25rem;
   background-color: var(--primary);
   color: #ffffff;
@@ -87,15 +233,56 @@ section.contact {
 }
 
 .cta-link:hover,
-.cta-link:focus {
+.cta-link:focus,
+.cta-link:focus-visible {
   background-color: var(--primary-hover);
-  outline: 3px solid #93c5fd;
+  color: #ffffff;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
-footer {
+footer,
+.site-footer {
   text-align: center;
   font-size: 0.9rem;
   color: var(--muted);
   padding: 1.5rem 1rem;
+}
+
+/* Responsive rules for 375px mobile & 1280px desktop viewports (AC-06) */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem 0.875rem;
+  }
+
+  header.hero,
+  section.hero,
+  section.services,
+  section.target-groups,
+  section.working-approach,
+  section.contact {
+    padding: 1.25rem 1rem;
+  }
+
+  header.hero h1,
+  section.hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .service-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1080px;
+    padding: 2rem 1.5rem;
+  }
 }

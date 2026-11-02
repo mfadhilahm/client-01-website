@@ -3,26 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nordwerk Industrie-Service – Technischer Betrieb &amp; Wartungsplanung</title>
+  <title>Nordwerk Industrie-Service – Technischer Betrieb &amp; Industrieservice</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
   <div class="course-notice" role="note" aria-label="Übungshinweis">
     Fiktives Unternehmen – Lehrprojekt der HAW Hamburg. Keine realen Angebote oder Kontaktaufnahme.
   </div>
 
-  <main class="container">
-    <header class="hero" id="start">
-      <h1>Nordwerk Industrie-Service</h1>
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="brand-name">Nordwerk Industrie-Service</span>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <ul class="nav-list">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#zielgruppen">Zielgruppen</a></li>
+        <li><a href="#arbeitsweise">Arbeitsweise</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main-content">
+    <section class="hero" id="start" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Nordwerk Industrie-Service</h1>
       <p class="lead">Praktische Unterstützung für Ihren technischen Betrieb.</p>
-    </header>
+      <p class="hero-actions">
+        <a class="cta-link" href="mailto:kontakt@nordwerk.example">Anfrage stellen</a>
+      </p>
+    </section>
 
     <section class="services" id="leistungen" aria-labelledby="leistungen-heading">
-      <h2 id="leistungen-heading">Unsere Leistung im Überblick</h2>
+      <h2 id="leistungen-heading">Unsere Leistungen im Überblick</h2>
+      <div class="service-grid">
       <article class="service-card">
         <h3>Wartungsplanung</h3>
         <p>Wir strukturieren Wartungsaufgaben und dokumentieren Zuständigkeiten für kleine technische Betriebe.</p>
       </article>
+      <article class="service-card">
+        <h3>Ersatzteilkoordination</h3>
+        <p>Wir unterstützen bei der Abstimmung von Ersatzteilbedarfen und Lieferterminen.</p>
+      </article>
+      <article class="service-card">
+        <h3>Betriebsdokumentation</h3>
+        <p>Wir bringen technische Unterlagen in eine nachvollziehbare und nutzbare Struktur.</p>
+      </article>
+      </div>
+    </section>
+    <section class="target-groups" id="zielgruppen" aria-labelledby="zielgruppen-heading">
+      <h2 id="zielgruppen-heading">Für wen wir arbeiten</h2>
+      <p>Unsere Unterstützung richtet sich gezielt an:</p>
+      <ul class="target-group-list">
+        <li class="target-group-item">Kleine Produktionsbetriebe</li>
+        <li class="target-group-item">Technische Serviceunternehmen</li>
+      </ul>
+    </section>
+
+    <section class="working-approach" id="arbeitsweise" aria-labelledby="arbeitsweise-heading">
+      <h2 id="arbeitsweise-heading">Unsere Arbeitsweise</h2>
+      <p class="approach-statement">Ein fester Ansprechpartner, ein gemeinsam vereinbarter Leistungsumfang und nachvollziehbare Ergebnisse.</p>
     </section>
 
     <section class="contact" id="kontakt" aria-labelledby="kontakt-heading">
@@ -32,8 +74,10 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Nordwerk Industrie-Service · Hamburg</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Nordwerk Industrie-Service · Hamburg</p>
+    </div>
   </footer>
 </body>
 </html>
